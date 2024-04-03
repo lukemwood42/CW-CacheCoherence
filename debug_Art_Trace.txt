@@ -1,0 +1,121 @@
+P0 W 1
+
+P0 R 2
+
+P0 R 5
+
+P1 R 6
+
+P1 R 7
+
+P3 R 7
+
+P2 W 8
+
+P1 R 9
+
+P3 R 9
+
+P1 R 10
+
+P2 W 11
+
+Printing out the cache contents:
+printing Cache content for Processor 0...
+cache line1: tag - 0 , line state - MODIFIED
+cache line2: tag - 0 , line state - SHARED
+cache line5: tag - 0 , line state - SHARED
+printing Cache content for Processor 1...
+cache line6: tag - 0 , line state - SHARED
+cache line7: tag - 0 , line state - SHARED
+cache line9: tag - 0 , line state - SHARED
+cache line10: tag - 0 , line state - SHARED
+printing Cache content for Processor 2...
+cache line8: tag - 0 , line state - MODIFIED
+cache line11: tag - 0 , line state - MODIFIED
+printing Cache content for Processor 3...
+cache line7: tag - 0 , line state - SHARED
+cache line9: tag - 0 , line state - SHARED
+-------switch on line-by-line explanation-------
+P0 W 1
+
+A write by processor P0 to word 1 looked for tag 0 in cacheline/block 1 , was found in state all other caches are in state Invalid
+Latency - 2
+
+P0 R 2
+
+A read by processor P0 to word 2 looked for tag 0 in cacheline/block 2 , was found in state Shared (cache hit) in this cache
+Latency - 2
+
+P0 W 3
+
+A write by processor P0 to word 3 looked for tag 0 in cacheline/block 3 , was found in state Invalid (cache miss) in this cache
+Latency - 29
+
+P0 R 4
+
+A read by processor P0 to word 4 looked for tag 0 in cacheline/block 4 , was found in state Invalid (cache miss) in this cache and  wasn't found in state Shared or Modified in any other cache
+Latency - 29
+
+P0 W 5
+
+A write by processor P0 to word 5 looked for tag 0 in cacheline/block 5 , was found in state Shared (cache hit) in this cache and wasn't found in any other caches
+Latency - 14
+
+P0 W 6
+
+A write by processor P0 to word 6 looked for tag 0 in cacheline/block 6 , was found in state Invalid (cache miss) in this cache and and found in state Shared in the cache of P1
+Latency - 25
+
+P0 W 7
+
+A write by processor P0 to word 7 looked for tag 0 in cacheline/block 7 , was found in state Invalid (cache miss) in this cache and and found in state Shared in the cache of P1, Shared in the cache of P3
+Latency - 24
+
+P0 W 8
+
+A write by processor P0 to word 8 looked for tag 0 in cacheline/block 8 , was found in state Invalid (cache miss) in this cache and and found in state Modified in the cache of P2
+Latency - 22
+
+P0 R 9
+
+A read by processor P0 to word 9 looked for tag 0 in cacheline/block 9 , was found in state Invalid (cache miss) in this cache and found in state Shared in the cache(s) of P1, P3
+Latency - 19
+
+P0 R 10
+
+A read by processor P0 to word 10 looked for tag 0 in cacheline/block 10 , was found in state Invalid (cache miss) in this cache and found in state Shared in the cache(s) of P1
+Latency - 25
+
+P0 R 11
+
+A read by processor P0 to word 11 looked for tag 0 in cacheline/block 11 , was found in state Invalid (cache miss) in this cache and found in state Modified in the cache of P2
+Latency - 22
+
+Printing out the cache contents:
+printing Cache content for Processor 0...
+cache line1: tag - 0 , line state - MODIFIED
+cache line2: tag - 0 , line state - SHARED
+cache line3: tag - 0 , line state - MODIFIED
+cache line4: tag - 0 , line state - SHARED
+cache line5: tag - 0 , line state - MODIFIED
+cache line6: tag - 0 , line state - MODIFIED
+cache line7: tag - 0 , line state - MODIFIED
+cache line8: tag - 0 , line state - MODIFIED
+cache line9: tag - 0 , line state - SHARED
+cache line10: tag - 0 , line state - SHARED
+cache line11: tag - 0 , line state - SHARED
+printing Cache content for Processor 1...
+cache line6: tag - 0 , line state - INVALID
+cache line7: tag - 0 , line state - INVALID
+cache line9: tag - 0 , line state - SHARED
+cache line10: tag - 0 , line state - SHARED
+printing Cache content for Processor 2...
+cache line8: tag - 0 , line state - INVALID
+cache line11: tag - 0 , line state - SHARED
+printing Cache content for Processor 3...
+cache line7: tag - 0 , line state - INVALID
+cache line9: tag - 0 , line state - SHARED
+Printing out the hit rate...
+Number of hits is 3.0, Number of misses is 19.0
+Hit rate is 0.157894736842

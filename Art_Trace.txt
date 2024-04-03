@@ -1,0 +1,26 @@
+P0 W 1
+P0 R 2
+P0 R 5
+P1 R 6
+P1 R 7
+P3 R 7
+P2 W 8
+P1 R 9
+P3 R 9
+P1 R 10
+P2 W 11
+p
+v
+P0 W 1
+P0 R 2
+P0 W 3
+P0 R 4
+P0 W 5
+P0 W 6
+P0 W 7
+P0 W 8
+P0 R 9
+P0 R 10
+P0 R 11
+p
+h
